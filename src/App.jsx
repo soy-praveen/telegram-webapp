@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './intro.css';  // Assuming you have the CSS file imported here
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,60 +31,219 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full">
-        <h1 className="text-2xl font-bold text-center mb-4">
+    <div style={{
+      minHeight: '100vh',
+      backgroundColor: '#121212',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '16px',
+      fontFamily: "'Poppins', sans-serif",
+      color: 'white',
+    }}>
+      <div style={{
+        backgroundColor: 'white',
+        borderRadius: '16px',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+        padding: '24px',
+        maxWidth: '400px',
+        width: '100%',
+      }}>
+        <h1 style={{
+          fontSize: '24px',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          marginBottom: '16px',
+        }}>
           Welcome to Our Web App
         </h1>
 
         {/* Loading steps */}
-        <div className="container">
-          <div className="step" id="step1">
-            <p className="step-text" id="text1">Checking account age...</p>
-            <div className="loading-bar-background">
-              <div className="loading-bar" style={{ animationDelay: '0s' }}></div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            opacity: 0,
+            transition: 'opacity 1s ease-in-out, transform 1s ease-in-out',
+            transform: 'translateY(20px)',
+          }} className="step visible">
+            <p style={{
+              margin: 0,
+              fontSize: '1.2rem',
+              animation: 'glow 2s infinite alternate, pulse 3s infinite',
+            }}>
+              Checking account age...
+            </p>
+            <div style={{
+              margin: '3px 0',
+              display: 'flex',
+              alignItems: 'center',
+              width: '200px',
+              height: '30px',
+              backgroundColor: '#212121',
+              boxShadow: 'inset -2px 2px 4px #0c0c0c',
+              borderRadius: '15px',
+              position: 'relative',
+            }}>
+              <div style={{
+                height: '20px',
+                width: '0%',
+                background: 'linear-gradient(0deg, rgba(222, 74, 15, 1) 0%, rgba(249, 199, 79, 1) 100%)',
+                borderRadius: '10px',
+                animation: 'loading 3s ease-out forwards',
+              }}></div>
             </div>
-            <p className="message">{accountAge !== null ? `Account age: ${accountAge} days` : 'Loading account age...'}</p>
+            <p style={{
+              display: accountAge !== null ? 'block' : 'none',
+              fontSize: '1.1rem',
+              marginTop: '2px',
+            }}>
+              {accountAge !== null ? `Account age: ${accountAge} days` : 'Loading account age...'}
+            </p>
           </div>
 
-          <div className="step" id="step2">
-            <p className="step-text" id="text2">Verifying Telegram activity...</p>
-            <div className="loading-bar-background">
-              <div className="loading-bar" style={{ animationDelay: '4s' }}></div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            opacity: 0,
+            transition: 'opacity 1s ease-in-out, transform 1s ease-in-out',
+            transform: 'translateY(20px)',
+          }} className="step visible">
+            <p style={{
+              margin: 0,
+              fontSize: '1.2rem',
+              animation: 'glow 2s infinite alternate, pulse 3s infinite',
+            }}>
+              Verifying Telegram activity...
+            </p>
+            <div style={{
+              margin: '3px 0',
+              display: 'flex',
+              alignItems: 'center',
+              width: '200px',
+              height: '30px',
+              backgroundColor: '#212121',
+              boxShadow: 'inset -2px 2px 4px #0c0c0c',
+              borderRadius: '15px',
+              position: 'relative',
+            }}>
+              <div style={{
+                height: '20px',
+                width: '0%',
+                background: 'linear-gradient(0deg, rgba(222, 74, 15, 1) 0%, rgba(249, 199, 79, 1) 100%)',
+                borderRadius: '10px',
+                animation: 'loading 3s ease-out forwards',
+              }}></div>
             </div>
-            <p className="message">Telegram activity verified</p>
+            <p style={{
+              display: 'block',
+              fontSize: '1.1rem',
+              marginTop: '2px',
+            }}>
+              Telegram activity verified
+            </p>
           </div>
 
-          <div className="step" id="step3">
-            <p className="step-text" id="text3">Allocating VIC's...</p>
-            <div className="loading-bar-background">
-              <div className="loading-bar" style={{ animationDelay: '8s' }}></div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2px',
+            opacity: 0,
+            transition: 'opacity 1s ease-in-out, transform 1s ease-in-out',
+            transform: 'translateY(20px)',
+          }} className="step visible">
+            <p style={{
+              margin: 0,
+              fontSize: '1.2rem',
+              animation: 'glow 2s infinite alternate, pulse 3s infinite',
+            }}>
+              Allocating VIC's...
+            </p>
+            <div style={{
+              margin: '3px 0',
+              display: 'flex',
+              alignItems: 'center',
+              width: '200px',
+              height: '30px',
+              backgroundColor: '#212121',
+              boxShadow: 'inset -2px 2px 4px #0c0c0c',
+              borderRadius: '15px',
+              position: 'relative',
+            }}>
+              <div style={{
+                height: '20px',
+                width: '0%',
+                background: 'linear-gradient(0deg, rgba(222, 74, 15, 1) 0%, rgba(249, 199, 79, 1) 100%)',
+                borderRadius: '10px',
+                animation: 'loading 3s ease-out forwards',
+              }}></div>
             </div>
-            <p className="message">{vicAmount !== null ? `Allocated VIC's: ${vicAmount}` : 'Loading VIC allocation...'}</p>
+            <p style={{
+              display: vicAmount !== null ? 'block' : 'none',
+              fontSize: '1.1rem',
+              marginTop: '2px',
+            }}>
+              {vicAmount !== null ? `Allocated VIC's: ${vicAmount}` : 'Loading VIC allocation...'}
+            </p>
           </div>
 
-          <button className="cssbuttons-io next-button" id="nextButton">
+          <button style={{
+            display: 'none',
+            marginTop: '15px',
+            animation: 'fade-in 0.5s ease-in-out forwards',
+            fontFamily: 'inherit',
+            fontWeight: '500',
+            fontSize: '18px',
+            borderRadius: '0.8em',
+            cursor: 'pointer',
+            border: 'none',
+            background: 'linear-gradient(to right, #8e2de2, #4a00e0)',
+            color: 'ghostwhite',
+            overflow: 'hidden',
+            animation: 'pulse 1.5s infinite',
+          }} id="nextButton">
             <span>Next!</span>
           </button>
         </div>
 
         {user ? (
-          <div className="text-center mt-6">
-            <p className="text-xl mb-2">
-              Hello, <span className="font-bold text-blue-600">
+          <div style={{
+            textAlign: 'center',
+            marginTop: '24px',
+          }}>
+            <p style={{
+              fontSize: '20px',
+              marginBottom: '8px',
+            }}>
+              Hello, <span style={{ fontWeight: 'bold', color: '#3b82f6' }}>
                 {user.username ? `@${user.username}` : user.first_name}
               </span>! 👋
             </p>
-            <p className="text-gray-600">
+            <p style={{
+              color: '#4b5563',
+            }}>
               Account age: {accountAge} days. We've allocated {vicAmount} VIC's based on that.
             </p>
           </div>
         ) : (
-          <div className="text-center mt-6">
-            <p className="text-xl mb-2">
+          <div style={{
+            textAlign: 'center',
+            marginTop: '24px',
+          }}>
+            <p style={{
+              fontSize: '20px',
+              marginBottom: '8px',
+            }}>
               Welcome, visitor! 👋
             </p>
-            <p className="text-gray-600">
+            <p style={{
+              color: '#4b5563',
+            }}>
               Please open this page through Telegram.
             </p>
           </div>
